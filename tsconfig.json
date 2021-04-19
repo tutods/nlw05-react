@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "preserve",
+		"experimentalDecorators": true,
+		"baseUrl": "src",
+		"rootDir": "src",
+		"typeRoots": ["./node_modules/@types"]
+	},
+	"include": [
+		"src",
+		"./declarations.d.ts",
+		"../assets/styles",
+		"../contexts"
+	],
+	"exclude": ["dist", "build", "node_modules"],
+	"files": ["./assets/styles/styled.d.ts"]
+}

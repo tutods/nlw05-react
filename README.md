@@ -1,11 +1,11 @@
 <div align="center">
-<!-- <a href="#"><img alt="Move.it" src="./public/logo-full.svg" width="150px"></a> -->
+<a href="#"><img alt="Podcastr" src="./public/favicon.svg" width="100px"></a>
 <h1 style="font-weight: 300; margin-top: 5px">React <strong>NLW-05</strong></h1>
 </div>
 
 <div align="center">
   	<a href="#">
-  		<img src="https://img.shields.io/badge/React%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2302569B" alt="React"/>
+  		<img src="https://img.shields.io/badge/React%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
 	</a>
 	<a href="#">
 		<img src="https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -32,6 +32,14 @@
 	<img src="https://img.shields.io/badge/React%20Native%20NLW5%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React Native"/>
 </a>
 </div>
+
+<h2 style="font-weight:300">🎨 Layout:</h2>
+
+To see layout created by **Rocketseat** team, click on badge below:
+
+<a href="https://www.figma.com/file/UwFEntsHpHYJlHNQAQr4gA/Podcastr?node-id=160%3A2761" target="_blank">
+	<img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
+</a>
 
 <div align="right" style="margin-top: 50px">
 <h3 style="font-weight: 300">
