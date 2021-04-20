@@ -20,12 +20,7 @@
 		"rootDir": "src",
 		"typeRoots": ["./node_modules/@types"]
 	},
-	"include": [
-		"src",
-		"./declarations.d.ts",
-		"../assets/styles",
-		"../contexts"
-	],
+	"include": ["src", "./next-env.d.ts"],
 	"exclude": ["dist", "build", "node_modules"],
 	"files": ["./assets/styles/styled.d.ts"]
 }
