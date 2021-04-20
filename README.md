@@ -41,6 +41,12 @@ To see layout created by **Rocketseat** team, click on badge below:
 	<img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
 </a>
 
+<h2 style="font-weight:300">📂 Changes:</h2>
+
+-   Use **styled components**;
+-   Add Light and Dark Mode;
+-   Use **SVG Sprite** and **Icon** component to access icons in sprite;
+
 <div align="right" style="margin-top: 50px">
 <h3 style="font-weight: 300">
 🧑🏻‍💻 About Me
