@@ -1,25 +1,24 @@
-import Icon from 'components/icons/Icon';
+import { AppWrapper } from 'assets/styles/pages/app-styles';
 import ProjectIcons from 'components/icons/ProjectIcons';
-import { ThemeSwitch } from 'components/ThemeSwitch';
+import { Header } from 'components/layout/Header';
+import { Player } from 'components/Player';
 import { ThemeProvider } from 'contexts/ThemeContext';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
 import React from 'react';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 	return (
 		<ThemeProvider>
+			{/* SVG Sprite */}
 			<ProjectIcons />
-			<Head>
-				<title>Podcastr</title>
-				<link rel='icon' href='/favicon.svg' />
-			</Head>
+			<AppWrapper>
+				<main>
+					<Header />
+					<Component {...pageProps} />
+				</main>
 
-			<ThemeSwitch />
-
-			<Icon name='playing' />
-
-			<Component {...pageProps} />
+				<Player />
+			</AppWrapper>
 		</ThemeProvider>
 	);
 };

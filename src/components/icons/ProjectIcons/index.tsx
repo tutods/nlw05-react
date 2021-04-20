@@ -25,8 +25,8 @@ const ProjectIcons: React.FC = () => {
 			{/* Pause */}
 			<symbol id='pause' viewBox='0 0 11 19' fill='none'>
 				<path
-					fill-rule='evenodd'
-					clip-rule='evenodd'
+					fillRule='evenodd'
+					clipRule='evenodd'
 					d='M1.5 0C0.671573 0 0 0.671573 0 1.5V17.5C0 18.3284 0.671573 19 1.5 19C2.32843 19 3 18.3284 3 17.5V1.5C3 0.671573 2.32843 0 1.5 0ZM9.5 0C8.67157 0 8 0.671573 8 1.5V17.5C8 18.3284 8.67157 19 9.5 19C10.3284 19 11 18.3284 11 17.5V1.5C11 0.671573 10.3284 0 9.5 0Z'
 					fill='currentColor'
 				/>
@@ -37,16 +37,16 @@ const ProjectIcons: React.FC = () => {
 				<path
 					d='M14 4.00024L16 6.00524L8.849 5.98424C5.632 5.98424 3 8.62324 3 11.8482V11.8482C3 13.4612 3.658 14.9272 4.718 15.9892'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M10 20.0002L8 17.9952L15.151 18.0162C18.368 18.0162 21 15.3772 21 12.1522V12.1522C21 10.5392 20.342 9.07323 19.282 8.01123'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</symbol>
 
@@ -55,16 +55,16 @@ const ProjectIcons: React.FC = () => {
 				<path
 					d='M20.7081 19.0347H19.6241C19.3268 19.0347 19.0548 19.2027 18.9228 19.468L17.9214 21.4707C17.7774 21.76 17.3641 21.76 17.2201 21.4707L14.7708 16.5707C14.6281 16.2867 14.2254 16.28 14.0748 16.56L12.9601 18.6227C12.8228 18.876 12.5574 19.0347 12.2694 19.0347H11.2921'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M6.55874 16H5.33474C3.62541 16 2.35741 17.5867 2.73341 19.2533L3.63608 23.2533C3.91074 24.4693 4.99074 25.3333 6.23741 25.3333H7.83208C8.26008 25.3333 8.57608 24.9373 8.48274 24.52L6.76008 16.892C5.42274 10.968 9.92674 5.33333 16.0001 5.33333V5.33333V5.33333C22.0734 5.33333 26.5774 10.968 25.2401 16.892L23.5187 24.52C23.4241 24.9373 23.7414 25.3333 24.1681 25.3333H25.7627C27.0094 25.3333 28.0894 24.4693 28.3641 23.2533L29.2667 19.2533C29.6427 17.5867 28.3747 16 26.6654 16H25.4414'
 					stroke='#04D361'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</symbol>
 
@@ -107,37 +107,37 @@ const ProjectIcons: React.FC = () => {
 				<path
 					d='M3 17.9793L5.384 17.9913C6.393 17.9963 7.336 17.4943 7.896 16.6553L14.105 7.34126C14.663 6.50326 15.605 6.00226 16.612 6.00526L21 6.02126'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M19 19.9792L21 17.9792L19 15.9792'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M8.893 8.62522L7.904 7.25322C7.337 6.46722 6.425 6.00322 5.455 6.00822L3 6.02122'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M12.969 15.3752L14.095 16.8312C14.665 17.5682 15.546 17.9982 16.478 17.9952L21 17.9792'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 				<path
 					d='M19 8.02124L21 6.02124L19 4.02124'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</symbol>
 
@@ -146,9 +146,9 @@ const ProjectIcons: React.FC = () => {
 				<path
 					d='M8.33325 1.33334L1.66659 8.00001L8.33325 14.6667'
 					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeWidth='2'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</symbol>
 		</svg>

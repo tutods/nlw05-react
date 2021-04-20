@@ -6,22 +6,15 @@ import { SwitchTheme } from './styles';
 interface IThemeSwitchProps {
 	lightColor?: string;
 	darkColor?: string;
-	className?: string;
 }
 
-const ThemeSwitch: React.FC<IThemeSwitchProps> = ({
-	lightColor,
-	darkColor,
-	className,
-	...props
-}) => {
+const ThemeSwitch: React.FC<IThemeSwitchProps> = ({ lightColor, darkColor, ...props }) => {
 	const { switchTheme, theme } = useTheme();
 
 	const icon = theme.title === 'light' ? <Icon name='dark' /> : <Icon name='light' />;
 
 	return (
 		<SwitchTheme
-			className={className || ''}
 			{...props}
 			lightColor={lightColor}
 			darkColor={darkColor}

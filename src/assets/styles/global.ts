@@ -2,6 +2,7 @@ import { shade } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+
 	/* ==> Scroll <== */
 	/* width */
 	::-webkit-scrollbar {
@@ -31,8 +32,46 @@ export default createGlobalStyle`
 		box-sizing: border-box;
 	}
 
+	html {
+		font-size: 16px;
+	}
+
+	@media (max-width: 1080px) {
+		html {
+			font-size: 93.75%; // 16px x 0.9376 = 15px (reduce  font size)
+		}
+	}
+	@media (max-width: 720px) {
+		html {
+			font-size: 87.5%; // 16px x 0.8750 = 14px (reduce  font size)
+		}
+	}
+
 	body {
 		background: ${(props) => props.theme.colors.background};
 		color: ${(props) => props.theme.colors.text};
+	}
+
+	body, input, textarea, button {
+		font: 500 1rem Inter, sans-serif;
+		color: ${({ theme }) => theme.colors.gray[500]};
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: 600;
+		font-family: Lexend, sans-serif;
+		color: ${({ theme }) => theme.colors.gray[800]};
+	}
+
+	h1 {
+		font-size: 2rem; // 16 + 16 => 32px
+	}
+
+	h2 {
+		font-size: 1.5rem  // 16 + 8 (16/2) => 24px
+	}
+
+	button {
+		cursor: pointer;
 	}
 `;

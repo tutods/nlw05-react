@@ -5,15 +5,13 @@ interface IIconProps {
 	name: string;
 	width?: string;
 	height?: string;
-	className?: string;
 	style?: React.CSSProperties;
 	onClick?: () => void;
 }
 
-const Icon: React.FC<IIconProps> = ({ name, width, height, style, className }) => {
+const Icon: React.FC<IIconProps> = ({ name, width, height, style }) => {
 	return (
 		<Svg
-			className={`${className || ''}`}
 			style={{
 				...(style || {})
 			}}

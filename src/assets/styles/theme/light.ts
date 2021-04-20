@@ -13,9 +13,9 @@ export const lightTheme = {
 			800: '#6F48C9'
 		},
 
-		greens: { 500: '#04D361' },
+		green: { 500: '#04D361' },
 
-		grays: {
+		gray: {
 			50: '#F7F8FA',
 			100: '#E6E8EB',
 			200: '#AFB2B1',
