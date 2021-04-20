@@ -18,7 +18,7 @@ const ProjectIcons: React.FC = () => {
 			</symbol>
 
 			{/* Dark Mode */}
-			<symbol id='dark' color='currentColor' viewBox='0 0 24 24'>
+			<symbol id='dark' fill='currentColor' viewBox='0 0 24 24'>
 				<path d='M19 6.734c0 4.672-4.25 7.079-4.25 12.266h-5.5c0-5.187-4.25-7.594-4.25-12.266 0-4.343 3.498-6.734 6.996-6.734 3.502 0 7.004 2.394 7.004 6.734zm-4.75 13.266h-4.5c-.276 0-.5.224-.5.5s.224.5.5.5h4.5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5zm.25 2h-5l1.451 1.659c.19.216.464.341.753.341h.593c.288 0 .563-.125.752-.341l1.451-1.659z' />
 			</symbol>
 
@@ -103,7 +103,7 @@ const ProjectIcons: React.FC = () => {
 			</symbol>
 
 			{/* Shuffle */}
-			<symbol id='shuffle' viewBox='0 0 24 24'>
+			<symbol id='shuffle' viewBox='0 0 24 24' fill='none'>
 				<path
 					d='M3 17.9793L5.384 17.9913C6.393 17.9963 7.336 17.4943 7.896 16.6553L14.105 7.34126C14.663 6.50326 15.605 6.00226 16.612 6.00526L21 6.02126'
 					stroke='currentColor'

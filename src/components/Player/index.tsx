@@ -1,6 +1,17 @@
 import Icon from 'components/icons/Icon';
 import React from 'react';
-import { Container, EmptyPlayer, PlayerHeader, PlayerFooter } from './styles';
+import {
+	Button,
+	Buttons,
+	Container,
+	EmptyPlayer,
+	EmptySlider,
+	PlayButton,
+	PlayerFooter,
+	PlayerHeader,
+	ProgressBar,
+	Slider
+} from './styles';
 
 const Player: React.FC = () => {
 	return (
@@ -15,7 +26,39 @@ const Player: React.FC = () => {
 				<strong>Selecione um podcast para ouvir</strong>
 			</EmptyPlayer>
 
-			<PlayerFooter></PlayerFooter>
+			<PlayerFooter empty>
+				<ProgressBar>
+					<span>00:00</span>
+
+					<Slider>
+						<EmptySlider />
+					</Slider>
+
+					<span>00:00</span>
+				</ProgressBar>
+
+				<Buttons>
+					<Button type='button'>
+						<Icon name='shuffle' />
+					</Button>
+
+					<Button type='button'>
+						<Icon name='previous' />
+					</Button>
+
+					<PlayButton type='button'>
+						<Icon name='play' />
+					</PlayButton>
+
+					<Button type='button'>
+						<Icon name='next' />
+					</Button>
+
+					<Button type='button'>
+						<Icon name='repeat' />
+					</Button>
+				</Buttons>
+			</PlayerFooter>
 		</Container>
 	);
 };

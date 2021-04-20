@@ -1,9 +1,11 @@
+import { rgba } from 'polished';
+
 export const darkTheme = {
 	title: 'dark',
 
 	colors: {
-		background: '#212121',
-		boxBackground: '#263238',
+		background: '#0D1117',
+		boxBackground: '#21262D',
 		text: '#fff',
 
 		primary: {
@@ -25,5 +27,9 @@ export const darkTheme = {
 
 		white: '#fff',
 		black: '#000'
+	},
+
+	shadows: {
+		default: `0 0 0.8rem ${rgba('#263238', 0.15)}`
 	}
 };

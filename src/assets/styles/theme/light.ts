@@ -1,3 +1,5 @@
+import { rgba } from 'polished';
+
 export const lightTheme = {
 	title: 'light',
 
@@ -25,5 +27,9 @@ export const lightTheme = {
 
 		white: '#fff',
 		black: '#000'
+	},
+
+	shadows: {
+		default: `0 0 0.8rem ${rgba('#fff', 0.15)}`
 	}
 };

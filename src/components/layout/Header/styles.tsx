@@ -24,7 +24,17 @@ export const HeaderText = styled.p`
 	border-left: 1px solid ${({ theme }) => theme.colors.gray[200]};
 `;
 
-export const HeaderDate = styled.span`
+export const RightContent = styled.div`
+	${flexSettings()};
+	${flexAlignment('center')};
+
 	margin-left: auto;
+
+	> * + * {
+		margin-left: 0.75rem;
+	}
+`;
+
+export const HeaderDate = styled.span`
 	text-transform: capitalize;
 `;
