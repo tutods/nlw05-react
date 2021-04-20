@@ -21,8 +21,8 @@ export const darkTheme = {
 			50: '#F7F8FA',
 			100: '#E6E8EB',
 			200: '#AFB2B1',
-			500: '#808080',
-			800: '#494D4B'
+			500: '#C9C9C9',
+			800: '#a5a5a5'
 		},
 
 		white: '#fff',

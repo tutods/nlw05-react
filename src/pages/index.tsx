@@ -1,20 +1,58 @@
+import { IEpisode } from 'interfaces/IEpisode';
 import React from 'react';
-import styled from 'styled-components';
 
-const Title = styled.h1`
-	color: ${({ theme }) => theme.colors.text};
-`;
+interface IHomeProps {
+	episodes: IEpisode[];
+}
 
-const Container = styled.div`
-	background-color: ${({ theme }) => theme.colors.background};
-`;
+const Home: React.FC<IHomeProps> = ({ episodes }) => {
+	// const [episodes, setEpisodes] = useState<IEpisode[]>();
 
-const Home: React.FC = () => {
+	/**
+	 * SPA
+	 * useEffect(() => {
+	 *	fetch('http://localhost:3333/episodes')
+	 *		.then((response) => response.json())
+	 *		.then((data) => setEpisodes(data));
+	 *}, []);
+	 */
+
 	return (
-		<Container>
-			<Title>teste</Title>
-		</Container>
+		<div>
+			{episodes?.map((episode, index) => (
+				<div key={index}>{episode?.title}</div>
+			))}
+		</div>
 	);
+};
+
+/**
+ * SSR
+ * export const getServerSideProps = async () => {
+ *	const response = await fetch('http://localhost:3333/episodes');
+ *	const data = await response.json();
+ *
+ *	return {
+ *		props: {
+ *			episodes: data
+ *		}
+ *	};
+ * };
+ * */
+
+/**
+ * SSG
+ */
+export const getStaticProps = async () => {
+	const response = await fetch('http://localhost:3333/episodes');
+	const data = await response.json();
+
+	return {
+		props: {
+			episodes: data
+		},
+		revalidate: 60 * 60 * 8 // new request at 8 hours
+	};
 };
 
 export default Home;
