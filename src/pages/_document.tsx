@@ -13,8 +13,6 @@ class MyDocument extends Document {
 						rel='stylesheet'
 					/>
 
-					{/* <title>Podcastr</title> */}
-
 					{/* Favicon */}
 					<link rel='icon' href='/favicon.svg' />
 				</Head>

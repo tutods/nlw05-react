@@ -1,6 +1,6 @@
 import { Header } from 'components/layout/Header';
 import { Player } from 'components/layout/Player';
-import { PlayerProvider } from 'contexts/PlayerContext';
+import { PlayerContextProvider } from 'contexts/PlayerContext';
 import React, { FC, ReactNode, useState } from 'react';
 import { PlayerEpisodeInfo } from 'utils/types/episode';
 import { Wrapper } from './styles';
@@ -14,7 +14,7 @@ const BaseLayout: FC<Props> = ({ children }) => {
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
 	return (
-		<PlayerProvider>
+		<PlayerContextProvider>
 			<Wrapper>
 				<main>
 					<Header />
@@ -23,7 +23,7 @@ const BaseLayout: FC<Props> = ({ children }) => {
 
 				<Player />
 			</Wrapper>
-		</PlayerProvider>
+		</PlayerContextProvider>
 	);
 };
 

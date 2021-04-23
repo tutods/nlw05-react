@@ -10,15 +10,16 @@ import {
 	PlayButton,
 	TableEpisodeImage,
 	TablePlayButton
-} from 'assets/styles/pages/index-styles';
+} from 'assets/styles/pages';
 import { Icon } from 'components/icons/Icon';
 import BaseLayout from 'components/layouts/base';
-import { PlayerContext } from 'contexts/PlayerContext';
+import { SEOTags } from 'components/SEOTags';
+import { usePlayer } from 'contexts/PlayerContext';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React from 'react';
 import { api } from 'services/api';
 import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
 import { Episode, FormattedEpisode } from 'utils/types/episode';
@@ -30,12 +31,14 @@ type Home = {
 };
 
 const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
-	const { episodeList, currentEpisodeIndex, play, updateCurrentIndex } = useContext(
-		PlayerContext
-	);
+	const { playList } = usePlayer();
+
+	// Join latest episodes with rest of episodes
+	const episodeList = [...latestEpisodes, ...allEpisodes];
 
 	return (
 		<HomePage>
+			<SEOTags />
 			<Container>
 				<LatestEpisodes>
 					<h2>Últimos Lançamentos</h2>
@@ -62,7 +65,7 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 									<span>{episode.durationAsString}</span>
 								</EpisodeDetails>
 
-								<PlayButton onClick={() => play(episode)}>
+								<PlayButton onClick={() => playList(episodeList, index)}>
 									<Icon name='play' />
 								</PlayButton>
 							</li>
@@ -107,7 +110,9 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 									<td>
 										<TablePlayButton
 											type='button'
-											onClick={() => play(episode)}
+											onClick={() =>
+												playList(episodeList, index + latestEpisodes.length)
+											}
 										>
 											<Icon name='play' />
 										</TablePlayButton>

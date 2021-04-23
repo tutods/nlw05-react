@@ -6,9 +6,11 @@ import {
 	PreviousButton,
 	ThumbnailContainer,
 	ThumbnailInfo
-} from 'assets/styles/pages/episode-styles';
+} from 'assets/styles/pages/episode';
 import { Icon } from 'components/icons/Icon';
 import BaseLayout from 'components/layouts/base';
+import { SEOTags } from 'components/SEOTags';
+import { usePlayer } from 'contexts/PlayerContext';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -24,8 +26,11 @@ type Props = {
 };
 
 const Episode: Page<Props> = ({ episode }) => {
+	const { play } = usePlayer();
+
 	return (
 		<Container>
+			<SEOTags title={episode.title} />
 			<Content>
 				<ThumbnailContainer thumbnail={episode.thumbnail}>
 					<ThumbnailInfo>
@@ -42,7 +47,7 @@ const Episode: Page<Props> = ({ episode }) => {
 						</PreviousButton>
 					</Link>
 
-					<PlayButton>
+					<PlayButton onClick={() => play(episode)}>
 						<Icon name='play' />
 					</PlayButton>
 				</ThumbnailContainer>

@@ -14,6 +14,10 @@ type PlayButtonProps = {
 	playing?: boolean;
 };
 
+type StateActionButtonProps = {
+	isActive?: boolean;
+};
+
 export const Container = styled.div`
 	width: 26.5rem;
 	height: 100vh;
@@ -149,6 +153,7 @@ export const Buttons = styled.div`
 	margin-top: 2.5rem;
 `;
 
+// ==> reusable css buttons <== //
 const CSSButton = css`
 	border: 0;
 	font-size: 0;
@@ -156,8 +161,30 @@ const CSSButton = css`
 
 	&:disabled {
 		cursor: not-allowed;
+		opacity: 0.5;
 	}
 `;
+
+const CSSStateActionButton = css<StateActionButtonProps>`
+	${CSSButton};
+	background-color: transparent;
+
+	> svg {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: ${({ theme, isActive }) =>
+			isActive ? theme.colors.green[500] : theme.colors.gray[50]};
+	}
+
+	&:hover:not(:disabled) {
+		> svg {
+			color: ${({ theme, isActive }) =>
+				isActive ? shade(0.15, theme.colors.green[500]) : theme.colors.gray[100]};
+		}
+	}
+`;
+
+// ==> end reusable css buttons <== //
 
 export const Button = styled.button`
 	${CSSButton};
@@ -174,6 +201,14 @@ export const Button = styled.button`
 			color: ${({ theme }) => theme.colors.gray[200]};
 		}
 	}
+`;
+
+export const RepeatButton = styled.button<StateActionButtonProps>`
+	${CSSStateActionButton}
+`;
+
+export const ShuffleButton = styled.button`
+	${CSSStateActionButton}
 `;
 
 export const PlayButton = styled.button<PlayButtonProps>`

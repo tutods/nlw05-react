@@ -1,8 +1,8 @@
 import { Icon } from 'components/icons/Icon';
-import { PlayerContext } from 'contexts/PlayerContext';
+import { usePlayer } from 'contexts/PlayerContext';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
 	Button,
 	Buttons,
@@ -14,14 +14,27 @@ import {
 	PlayerHeader,
 	Playing,
 	ProgressBar,
+	RepeatButton,
+	ShuffleButton,
 	SliderContainer,
 	ThumbnailContainer
 } from './styles';
 
 const Player: React.FC = () => {
-	const { episodeList, currentEpisodeIndex, isPlaying, setPlayingState, togglePlay } = useContext(
-		PlayerContext
-	);
+	const {
+		episodeList,
+		currentEpisodeIndex,
+		isPlaying,
+		isLooping,
+		hasNext,
+		hasPrevious,
+		setPlayingState,
+		togglePlay,
+		toggleLoop,
+		playNext,
+		playPrevious
+	} = usePlayer();
+
 	const episode = episodeList[currentEpisodeIndex];
 
 	// Reference to audio tag
@@ -84,17 +97,22 @@ const Player: React.FC = () => {
 						ref={audioRef}
 						src={episode.url}
 						autoPlay
+						loop={isLooping}
 						onPlay={() => setPlayingState(true)}
 						onPause={() => setPlayingState(false)}
 					/>
 				)}
 
 				<Buttons>
-					<Button type='button' disabled={!episode}>
+					<ShuffleButton isActive={false} type='button' disabled={!episode}>
 						<Icon name='shuffle' />
-					</Button>
+					</ShuffleButton>
 
-					<Button type='button' disabled={!episode}>
+					<Button
+						type='button'
+						onClick={() => playPrevious()}
+						disabled={!episode || !hasPrevious}
+					>
 						<Icon name='previous' />
 					</Button>
 
@@ -107,13 +125,22 @@ const Player: React.FC = () => {
 						<Icon name={isPlaying ? 'pause' : 'play'} />
 					</PlayButton>
 
-					<Button type='button' disabled={!episode}>
+					<Button
+						type='button'
+						onClick={() => playNext()}
+						disabled={!episode || !hasNext}
+					>
 						<Icon name='next' />
 					</Button>
 
-					<Button type='button' disabled={!episode}>
+					<RepeatButton
+						isActive={isLooping}
+						type='button'
+						onClick={() => toggleLoop()}
+						disabled={!episode}
+					>
 						<Icon name='repeat' />
-					</Button>
+					</RepeatButton>
 				</Buttons>
 			</PlayerFooter>
 		</Container>

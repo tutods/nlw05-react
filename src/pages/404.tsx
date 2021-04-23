@@ -1,12 +1,14 @@
-import { Container, Logo } from 'assets/styles/pages/404-styles';
+import { Container, Logo } from 'assets/styles/pages/404';
 import { Icon } from 'components/icons/Icon';
 import PodcastrLogo from 'components/icons/PodcastrLogo';
+import { SEOTags } from 'components/SEOTags';
 import Link from 'next/link';
 import React from 'react';
 
 const Custom404: React.FC = () => {
 	return (
 		<Container>
+			<SEOTags title='Erro 404' />
 			<Logo>
 				<PodcastrLogo darkVersion />
 			</Logo>
