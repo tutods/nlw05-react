@@ -1,15 +1,3 @@
-import { Icon } from 'components/icons/Icon';
-import BaseLayout from 'components/layouts/base';
-import { format, parseISO } from 'date-fns';
-import { pt } from 'date-fns/locale';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import React from 'react';
-import { api } from 'services/api';
-import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
-import { IFormattedEpisode } from 'utils/interfaces/IEpisode';
-import { Page } from 'utils/types/page';
 import {
 	Container,
 	Content,
@@ -18,15 +6,24 @@ import {
 	PreviousButton,
 	ThumbnailContainer,
 	ThumbnailInfo
-} from './styles';
+} from 'assets/styles/pages/episode-styles';
+import { Icon } from 'components/icons/Icon';
+import BaseLayout from 'components/layouts/base';
+import { format, parseISO } from 'date-fns';
+import { pt } from 'date-fns/locale';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
+import React from 'react';
+import { api } from 'services/api';
+import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
+import { IFormattedEpisode } from 'utils/interfaces/IEpisode';
+import { Page } from 'utils/types/page';
 
 type Props = {
 	episode: IFormattedEpisode;
 };
 
 const Episode: Page<Props> = ({ episode }) => {
-	const router = useRouter();
-
 	return (
 		<Container>
 			<Content>

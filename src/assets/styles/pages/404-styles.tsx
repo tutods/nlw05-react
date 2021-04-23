@@ -18,6 +18,11 @@ export const Container = styled.div`
 
 	color: ${({ theme }) => theme.colors.white};
 
+	h1,
+	h2 {
+		color: ${({ theme }) => theme.colors.white};
+	}
+
 	h1 {
 		margin: 2rem 0 0.5rem;
 
