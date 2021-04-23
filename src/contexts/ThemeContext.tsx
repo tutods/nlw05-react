@@ -4,18 +4,18 @@ import { lightTheme } from 'assets/styles/theme/light';
 import { createContext, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { DefaultTheme, ThemeProvider as ThemeStyledProvider } from 'styled-components';
 
-export interface ThemeContextData {
+export type ThemeContextData = {
 	switchTheme: () => void;
 	theme: DefaultTheme;
-}
+};
 
-interface ThemeProps {
+type ThemeProps = {
 	children: ReactNode;
-}
+};
 
 export const ThemeContext = createContext({} as ThemeContextData);
 
-export function ThemeProvider({ children }: ThemeProps): ReactElement {
+export const ThemeProvider = ({ children }: ThemeProps): ReactElement => {
 	const [theme, setTheme] = useState<DefaultTheme>(lightTheme);
 
 	const switchTheme = () => {
@@ -42,4 +42,4 @@ export function ThemeProvider({ children }: ThemeProps): ReactElement {
 			</ThemeStyledProvider>
 		</ThemeContext.Provider>
 	);
-}
+};

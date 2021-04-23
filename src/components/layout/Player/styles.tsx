@@ -1,11 +1,18 @@
 import { flexAlignment, flexSettings } from 'assets/styles/mixins';
-import { rgba, shade } from 'polished';
-import styled, { DefaultTheme } from 'styled-components';
+import { rgba, shade, tint } from 'polished';
+import styled, { css } from 'styled-components';
 
-interface IPlayerFooterProps {
+type FooterProps = {
 	empty?: boolean;
-	theme: DefaultTheme;
-}
+};
+
+type ThumbnailContainerProps = {
+	thumbnail?: string;
+};
+
+type PlayButtonProps = {
+	playing?: boolean;
+};
 
 export const Container = styled.div`
 	width: 26.5rem;
@@ -60,10 +67,49 @@ export const EmptyPlayer = styled.div`
 	box-shadow: ${({ theme }) => theme.shadows.default};
 `;
 
-export const PlayerFooter = styled.footer<IPlayerFooterProps>`
+export const Playing = styled.div`
+	${flexSettings('column')};
+	${flexAlignment('center', 'center')};
+
+	strong {
+		margin-top: 2rem;
+		font: 600 1.25rem Lexend, sans-serif;
+		line-height: 1.75rem;
+		text-align: center;
+	}
+
+	span {
+		margin-top: 1rem;
+		font-size: 0.85rem;
+		line-height: 1.25rem;
+		color: ${({ theme }) => tint(0.65, theme.colors.gray[200])};
+		text-align: center;
+	}
+`;
+
+export const ThumbnailContainer = styled.div<ThumbnailContainerProps>`
+	width: 100%;
+	height: 20rem;
+
+	padding: 4rem;
+	text-align: center;
+	border: 1.5px dashed ${({ theme }) => theme.colors.primary[300]};
+	border-radius: 1.5rem;
+
+	background-image: url(${({ thumbnail }) => thumbnail});
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-blend-mode: overlay; */
+	background-color: ${({ theme }) => theme.colors.boxBackground};
+
+	box-shadow: ${({ theme }) => theme.shadows.default};
+`;
+
+export const PlayerFooter = styled.footer<FooterProps>`
 	align-self: stretch;
 
-	/* Empty? */
+	/* Empty */
 	opacity: ${({ empty }) => (empty ? 0.5 : 1)};
 `;
 
@@ -81,7 +127,7 @@ export const ProgressBar = styled.div`
 	}
 `;
 
-export const Slider = styled.div`
+export const SliderContainer = styled.div`
 	flex: 1;
 `;
 
@@ -103,11 +149,19 @@ export const Buttons = styled.div`
 	margin-top: 2.5rem;
 `;
 
-export const Button = styled.button`
+const CSSButton = css`
 	border: 0;
-
-	background-color: transparent;
 	font-size: 0;
+	transition: all 0.5s ease-in-out;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+`;
+
+export const Button = styled.button`
+	${CSSButton};
+	background-color: transparent;
 
 	> svg {
 		width: 1.5rem;
@@ -115,24 +169,22 @@ export const Button = styled.button`
 		color: ${({ theme }) => theme.colors.gray[50]};
 	}
 
-	transition: all 0.5s ease-in-out;
-
-	&:hover {
+	&:hover:not(:disabled) {
 		> svg {
 			color: ${({ theme }) => theme.colors.gray[200]};
 		}
 	}
 `;
 
-export const PlayButton = styled.button`
+export const PlayButton = styled.button<PlayButtonProps>`
+	${CSSButton};
 	width: 4rem;
 	height: 4rem;
 
-	border: 0;
 	border-radius: 1rem;
 
-	background-color: ${({ theme }) => theme.colors.primary[400]};
-	font-size: 0;
+	background-color: ${({ playing, theme }) =>
+		playing ? shade(0.5, theme.colors.primary[400]) : theme.colors.primary[400]};
 
 	> svg {
 		width: 2rem;
@@ -140,9 +192,7 @@ export const PlayButton = styled.button`
 		color: ${({ theme }) => theme.colors.gray[50]};
 	}
 
-	transition: all 0.5s ease-in-out;
-
-	&:hover {
+	&:hover:not(:disabled) {
 		background-color: ${({ theme }) => shade(0.5, theme.colors.primary[400])};
 	}
 `;

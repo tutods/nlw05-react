@@ -1,6 +1,8 @@
 import { Header } from 'components/layout/Header';
 import { Player } from 'components/layout/Player';
-import React, { FC, ReactNode } from 'react';
+import { PlayerProvider } from 'contexts/PlayerContext';
+import React, { FC, ReactNode, useState } from 'react';
+import { PlayerEpisodeInfo } from 'utils/types/episode';
 import { Wrapper } from './styles';
 
 type Props = {
@@ -8,15 +10,20 @@ type Props = {
 };
 
 const BaseLayout: FC<Props> = ({ children }) => {
-	return (
-		<Wrapper>
-			<main>
-				<Header />
-				{children}
-			</main>
+	const [episodeList, setEpisodeList] = useState<PlayerEpisodeInfo[]>([]);
+	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-			<Player />
-		</Wrapper>
+	return (
+		<PlayerProvider>
+			<Wrapper>
+				<main>
+					<Header />
+					{children}
+				</main>
+
+				<Player />
+			</Wrapper>
+		</PlayerProvider>
 	);
 };
 

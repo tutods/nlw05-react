@@ -1,4 +1,4 @@
-export interface IEpisode {
+export type Episode = {
 	id: string;
 	title: string;
 	members: string;
@@ -10,9 +10,9 @@ export interface IEpisode {
 		type: string;
 		duration: number;
 	};
-}
+};
 
-export interface IFormattedEpisode {
+export type FormattedEpisode = {
 	id: string;
 	title: string;
 	thumbnail: string;
@@ -22,4 +22,13 @@ export interface IFormattedEpisode {
 	durationAsString: string;
 	description?: string;
 	url: string;
-}
+};
+
+export type PlayerEpisodeInfo = {
+	title: string;
+	thumbnail: string;
+	members: string;
+	duration: number;
+	durationAsString: string;
+	url: string;
+};

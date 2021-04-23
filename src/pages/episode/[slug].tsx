@@ -16,11 +16,11 @@ import Link from 'next/link';
 import React from 'react';
 import { api } from 'services/api';
 import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
-import { IFormattedEpisode } from 'utils/interfaces/IEpisode';
+import { FormattedEpisode } from 'utils/types/episode';
 import { Page } from 'utils/types/page';
 
 type Props = {
-	episode: IFormattedEpisode;
+	episode: FormattedEpisode;
 };
 
 const Episode: Page<Props> = ({ episode }) => {

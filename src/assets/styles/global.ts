@@ -44,6 +44,13 @@ export default createGlobalStyle`
 			font-size: 93.75%; // 16px x 0.9376 = 15px (reduce  font size)
 		}
 	}
+
+	@media (min-width: 2000px) {
+		html {
+			font-size: 100%;
+		}
+	}
+
 	@media (max-width: 720px) {
 		html {
 			font-size: 87.5%; // 16px x 0.8750 = 14px (reduce  font size)

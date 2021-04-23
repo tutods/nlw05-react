@@ -13,22 +13,27 @@ import {
 } from 'assets/styles/pages/index-styles';
 import { Icon } from 'components/icons/Icon';
 import BaseLayout from 'components/layouts/base';
+import { PlayerContext } from 'contexts/PlayerContext';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import { api } from 'services/api';
 import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
-import { IEpisode, IFormattedEpisode } from 'utils/interfaces/IEpisode';
+import { Episode, FormattedEpisode } from 'utils/types/episode';
 import { Page } from 'utils/types/page';
 
 type Home = {
-	allEpisodes: IFormattedEpisode[];
-	latestEpisodes: IFormattedEpisode[];
+	allEpisodes: FormattedEpisode[];
+	latestEpisodes: FormattedEpisode[];
 };
 
 const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
+	const { episodeList, currentEpisodeIndex, play, updateCurrentIndex } = useContext(
+		PlayerContext
+	);
+
 	return (
 		<HomePage>
 			<Container>
@@ -36,7 +41,7 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 					<h2>Últimos Lançamentos</h2>
 
 					<ListLastEpisodes>
-						{latestEpisodes.map((episode: IFormattedEpisode, index) => (
+						{latestEpisodes.map((episode: FormattedEpisode, index) => (
 							<li key={index}>
 								<EpisodeImage
 									width={192}
@@ -57,7 +62,7 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 									<span>{episode.durationAsString}</span>
 								</EpisodeDetails>
 
-								<PlayButton>
+								<PlayButton onClick={() => play(episode)}>
 									<Icon name='play' />
 								</PlayButton>
 							</li>
@@ -80,7 +85,7 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 							</tr>
 						</thead>
 						<tbody>
-							{allEpisodes.map((episode: IFormattedEpisode, index) => (
+							{allEpisodes.map((episode: FormattedEpisode, index) => (
 								<tr key={index}>
 									<td>
 										<TableEpisodeImage
@@ -100,7 +105,10 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 									<td style={{ width: '7rem' }}>{episode.publishedAt}</td>
 									<td>{episode.durationAsString}</td>
 									<td>
-										<TablePlayButton type='button'>
+										<TablePlayButton
+											type='button'
+											onClick={() => play(episode)}
+										>
 											<Icon name='play' />
 										</TablePlayButton>
 									</td>
@@ -128,7 +136,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		}
 	});
 
-	const episodes = data.map((episode: IEpisode) => {
+	const episodes = data.map((episode: Episode) => {
 		return {
 			id: episode.id,
 			title: episode.title,
