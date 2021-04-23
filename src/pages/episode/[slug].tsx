@@ -5,7 +5,8 @@ import {
 	EpisodeHeader,
 	PlayButton,
 	PreviousButton,
-	ThumbnailContainer
+	ThumbnailContainer,
+	ThumbnailInfo
 } from 'assets/styles/pages/episode-styles';
 import { Icon } from 'components/icons/Icon';
 import { format, parseISO } from 'date-fns';
@@ -29,7 +30,13 @@ const Episode: React.FC<IEpisodeProps> = ({ episode }) => {
 		<Container>
 			<Content>
 				<ThumbnailContainer thumbnail={episode.thumbnail}>
-					<h1>{episode.title}</h1>
+					<ThumbnailInfo>
+						<h1>{episode.title}</h1>
+
+						<span>{episode.members}</span>
+						<span>{episode.publishedAt}</span>
+						<span>{episode.durationAsString}</span>
+					</ThumbnailInfo>
 
 					<Link href='/'>
 						<PreviousButton>
@@ -41,12 +48,6 @@ const Episode: React.FC<IEpisodeProps> = ({ episode }) => {
 						<Icon name='play' />
 					</PlayButton>
 				</ThumbnailContainer>
-
-				<EpisodeHeader>
-					<span>{episode.members}</span>
-					<span>{episode.publishedAt}</span>
-					<span>{episode.durationAsString}</span>
-				</EpisodeHeader>
 
 				<Description dangerouslySetInnerHTML={{ __html: episode.description! }} />
 			</Content>

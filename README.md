@@ -46,6 +46,7 @@ To see layout created by **Rocketseat** team, click on badge below:
 -   Use **styled components**;
 -   Add Light and Dark Mode;
 -   Use **SVG Sprite** and **Icon** component to access icons in sprite;
+-   I have a different layout in episode page;
 
 <div align="right" style="margin-top: 50px">
 <h3 style="font-weight: 300">

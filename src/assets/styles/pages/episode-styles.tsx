@@ -31,15 +31,6 @@ export const ThumbnailContainer = styled.div<IThumbnailProps>`
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-
-	h1 {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		margin: 0 2rem 2rem;
-
-		color: ${({ theme }) => theme.colors.white};
-	}
 `;
 
 const buttonCSS = css`
@@ -90,20 +81,22 @@ export const PlayButton = styled.button`
 	}
 `;
 
-export const EpisodeHeader = styled.header`
-	padding: 1rem 0;
-	border-bottom: 1px solid
-		${({ theme }) =>
-			theme.title === 'light' ? shade(0.25, theme.colors.gray[100]) : theme.colors.gray[100]};
+export const ThumbnailInfo = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0 2rem 2rem;
 
-	/* h1 {
-		margin-top: 2rem;
-		margin-bottom: 1.5rem;
-	} */
+	h1 {
+		color: ${({ theme }) => theme.colors.white};
+		margin-bottom: 0.75rem;
+	}
 
 	span {
 		display: inline-block;
 		font-size: 0.875rem;
+
+		color: ${({ theme }) => shade(0.15, theme.colors.white)};
 
 		& + span {
 			position: relative;
