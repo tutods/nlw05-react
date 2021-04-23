@@ -1,4 +1,4 @@
-import { useTheme } from 'hooks/useTheme';
+import { useTheme } from 'utils/hooks/useTheme';
 import React from 'react';
 
 const PodcastrLogo: React.FC = () => {

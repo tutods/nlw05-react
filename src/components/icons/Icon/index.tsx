@@ -23,4 +23,4 @@ const Icon: React.FC<IIconProps> = ({ name, width, height, style }) => {
 	);
 };
 
-export default Icon;
+export { Icon };

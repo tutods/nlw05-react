@@ -30,6 +30,6 @@ export const darkTheme = {
 	},
 
 	shadows: {
-		default: `0 0 0.8rem ${rgba('#263238', 0.15)}`
+		default: `0 0 0.8rem ${rgba('#0D1117', 0.15)}`
 	}
 };

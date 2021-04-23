@@ -155,4 +155,4 @@ const ProjectIcons: React.FC = () => {
 	);
 };
 
-export default ProjectIcons;
+export { ProjectIcons };

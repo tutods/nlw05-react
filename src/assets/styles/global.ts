@@ -1,8 +1,7 @@
-import { shade } from 'polished';
+import { shade, tint } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-
 	/* ==> Scroll <== */
 	/* width */
 	::-webkit-scrollbar {
@@ -11,19 +10,23 @@ export default createGlobalStyle`
 
 	/* Track */
 	::-webkit-scrollbar-track {
-		background: ${(props) => shade(0.5, props.theme.colors.boxBackground)};
+		background: ${({ theme }) => shade(0.15, theme.colors.boxBackground)};
 		border-radius: 25px;
 	}
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
 		border-radius: 25px;
-		background: ${(props) => shade(0.5, props.theme.colors.primary[400])};
+		background: ${({ theme }) =>
+			theme.title === 'light' ? theme.colors.text : shade(0.05, theme.colors.text)};
 	}
 
 	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
-		background: ${(props) => props.theme.colors.primary[800]};
+		background: ${({ theme }) =>
+			theme.title === 'light'
+				? tint(0.25, theme.colors.text)
+				: shade(0.25, theme.colors.text)};
 	}
 
 	* {
@@ -57,6 +60,10 @@ export default createGlobalStyle`
 		color: ${({ theme }) => theme.colors.gray[500]};
 	}
 
+	a {
+		text-decoration: none;
+	}
+
 	button {
 		outline: 0;
 	}
@@ -64,7 +71,7 @@ export default createGlobalStyle`
 	h1,h2,h3,h4,h5,h6 {
 		font-weight: 600;
 		font-family: Lexend, sans-serif;
-		color: ${({ theme }) => theme.colors.gray[800]};
+		color: ${({ theme }) => theme.colors.text};
 	}
 
 	h1 {

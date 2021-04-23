@@ -1,5 +1,5 @@
 import { AppWrapper } from 'assets/styles/pages/app-styles';
-import ProjectIcons from 'components/icons/ProjectIcons';
+import { ProjectIcons } from 'components/icons/ProjectIcons';
 import { Header } from 'components/layout/Header';
 import { Player } from 'components/layout/Player';
 import { ThemeProvider } from 'contexts/ThemeContext';

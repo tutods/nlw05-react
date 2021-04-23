@@ -1,5 +1,5 @@
 import { flexAlignment, flexSettings } from 'assets/styles/mixins';
-import { rgba } from 'polished';
+import { rgba, shade } from 'polished';
 import styled, { DefaultTheme } from 'styled-components';
 
 interface IPlayerFooterProps {
@@ -114,6 +114,14 @@ export const Button = styled.button`
 		height: 1.5rem;
 		color: ${({ theme }) => theme.colors.gray[50]};
 	}
+
+	transition: all 0.5s ease-in-out;
+
+	&:hover {
+		> svg {
+			color: ${({ theme }) => theme.colors.gray[200]};
+		}
+	}
 `;
 
 export const PlayButton = styled.button`
@@ -130,5 +138,11 @@ export const PlayButton = styled.button`
 		width: 2rem;
 		height: 2rem;
 		color: ${({ theme }) => theme.colors.gray[50]};
+	}
+
+	transition: all 0.5s ease-in-out;
+
+	&:hover {
+		background-color: ${({ theme }) => shade(0.5, theme.colors.primary[400])};
 	}
 `;

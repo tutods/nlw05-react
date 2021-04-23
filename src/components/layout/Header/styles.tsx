@@ -4,17 +4,27 @@ import styled from 'styled-components';
 export const Container = styled.header`
 	height: 6.5rem;
 
-	${flexSettings()};
-	${flexAlignment('center')};
-
-	padding: 2rem 4rem;
+	padding: 2rem 0;
 	border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
 
 	background-color: ${({ theme }) => theme.colors.boxBackground};
+`;
 
-	> svg {
-		width: 163px;
-		height: 40px;
+export const MaxContent = styled.div`
+	max-width: 1400px;
+	margin-right: auto;
+	margin-left: auto;
+
+	padding: 0 4rem;
+
+	${flexSettings()};
+	${flexAlignment('center')};
+
+	> a {
+		> svg {
+			width: 163px;
+			height: 40px;
+		}
 	}
 `;
 

@@ -1,5 +1,5 @@
-import Icon from 'components/icons/Icon';
-import { useTheme } from 'hooks/useTheme';
+import { Icon } from 'components/icons/Icon';
+import { useTheme } from 'utils/hooks/useTheme';
 import React from 'react';
 import { SwitchTheme } from './styles';
 
