@@ -1,24 +1,20 @@
-import { AppWrapper } from 'assets/styles/pages/app-styles';
 import { ProjectIcons } from 'components/icons/ProjectIcons';
-import { Header } from 'components/layout/Header';
-import { Player } from 'components/layout/Player';
+import EmptyLayout from 'components/layouts/empty';
 import { ThemeProvider } from 'contexts/ThemeContext';
-import { AppProps } from 'next/app';
+import { NextPage } from 'next';
 import React from 'react';
+import { AppCustomProps } from 'utils/types/app';
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+const MyApp: NextPage<AppCustomProps> = ({ Component, pageProps }) => {
+	const Layout = Component.layout || EmptyLayout;
+
 	return (
 		<ThemeProvider>
 			{/* SVG Sprite */}
 			<ProjectIcons />
-			<AppWrapper>
-				<main>
-					<Header />
-					<Component {...pageProps} />
-				</main>
-
-				<Player />
-			</AppWrapper>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
 		</ThemeProvider>
 	);
 };

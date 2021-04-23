@@ -10,8 +10,9 @@ import {
 	PlayButton,
 	TableEpisodeImage,
 	TablePlayButton
-} from 'assets/styles/pages/home-styles';
+} from 'assets/styles/pages/index-styles';
 import { Icon } from 'components/icons/Icon';
+import BaseLayout from 'components/layouts/base';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { GetStaticProps } from 'next';
@@ -20,13 +21,14 @@ import React from 'react';
 import { api } from 'services/api';
 import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
 import { IEpisode, IFormattedEpisode } from 'utils/interfaces/IEpisode';
+import { Page } from 'utils/types/page';
 
-interface IHomeProps {
+type Home = {
 	allEpisodes: IFormattedEpisode[];
 	latestEpisodes: IFormattedEpisode[];
-}
+};
 
-const Home: React.FC<IHomeProps> = ({ allEpisodes, latestEpisodes }) => {
+const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 	return (
 		<HomePage>
 			<Container>
@@ -111,6 +113,8 @@ const Home: React.FC<IHomeProps> = ({ allEpisodes, latestEpisodes }) => {
 		</HomePage>
 	);
 };
+
+Home.layout = BaseLayout;
 
 /**
  * SSG

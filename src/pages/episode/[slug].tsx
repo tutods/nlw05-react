@@ -1,14 +1,5 @@
-import {
-	Container,
-	Content,
-	Description,
-	EpisodeHeader,
-	PlayButton,
-	PreviousButton,
-	ThumbnailContainer,
-	ThumbnailInfo
-} from 'assets/styles/pages/episode-styles';
 import { Icon } from 'components/icons/Icon';
+import BaseLayout from 'components/layouts/base';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -18,12 +9,22 @@ import React from 'react';
 import { api } from 'services/api';
 import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
 import { IFormattedEpisode } from 'utils/interfaces/IEpisode';
+import { Page } from 'utils/types/page';
+import {
+	Container,
+	Content,
+	Description,
+	PlayButton,
+	PreviousButton,
+	ThumbnailContainer,
+	ThumbnailInfo
+} from './styles';
 
-interface IEpisodeProps {
+type Props = {
 	episode: IFormattedEpisode;
-}
+};
 
-const Episode: React.FC<IEpisodeProps> = ({ episode }) => {
+const Episode: Page<Props> = ({ episode }) => {
 	const router = useRouter();
 
 	return (
@@ -54,6 +55,8 @@ const Episode: React.FC<IEpisodeProps> = ({ episode }) => {
 		</Container>
 	);
 };
+
+Episode.layout = BaseLayout;
 
 export default Episode;
 

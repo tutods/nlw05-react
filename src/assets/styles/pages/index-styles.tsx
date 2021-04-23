@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { rgba, shade, tint } from 'polished';
 import styled from 'styled-components';
-import { flexAlignment, flexSettings } from '../mixins';
+import { flexAlignment, flexSettings } from 'assets/styles/mixins';
 
 export const HomePage = styled.div`
 	height: calc(100vh - 6.5rem);
