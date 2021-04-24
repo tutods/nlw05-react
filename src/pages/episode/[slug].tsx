@@ -59,7 +59,6 @@ const Episode: Page<Props> = ({ episode }) => {
 };
 
 Episode.layout = BaseLayout;
-
 export default Episode;
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -71,22 +70,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
 	const { slug } = context.params!;
-	const { data } = await api.get(`episodes/${slug}`);
 
-	const episode = {
-		id: data.id,
-		title: data.title,
-		thumbnail: data.thumbnail,
-		members: data.members,
-		publishedAt: format(parseISO(data.published_at), 'd MMM yy', { locale: pt }),
-		duration: Number(data.file.duration),
-		durationAsString: convertDurationToTimeString(Number(data.file.duration)),
-		description: data.description,
-		url: data.file.url
-	};
+	try {
+		const { data } = await api.get(`episodes/${slug}`);
 
-	return {
-		props: { episode },
-		revalidate: 60 * 60 * 24 // new request every 24 hours
-	};
+		const episode = {
+			id: data.id,
+			title: data.title,
+			thumbnail: data.thumbnail,
+			members: data.members,
+			publishedAt: format(parseISO(data.published_at), 'd MMM yy', { locale: pt }),
+			duration: Number(data.file.duration),
+			durationAsString: convertDurationToTimeString(Number(data.file.duration)),
+			description: data.description,
+			url: data.file.url
+		};
+
+		return {
+			props: { episode: episode },
+			revalidate: 60 * 60 * 24 // new request every 24 hours
+		};
+	} catch (err: any) {
+		return {
+			redirect: {
+				permanent: false,
+				destination: '/404'
+			}
+		};
+	}
 };
