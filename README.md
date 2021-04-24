@@ -35,9 +35,11 @@
 
 <h2 style="font-weight:300">🌐 Deploy:</h2>
 
-<a href="https://moveit-tutods.vercel.app/">
+<a href="https://podcastr-tutods.vercel.app/">
   <img alt="Vercel" src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white" alt='Deploy'/>
 </a>
+
+<br /><br />
 
 <h2 style="font-weight:300">🎨 Layout:</h2>
 
@@ -47,6 +49,8 @@ To see layout created by **Rocketseat** team, click on badge below:
 	<img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
 </a>
 
+<br /><br />
+
 <h2 style="font-weight:300">📂 Changes:</h2>
 
 -   Use **styled components**;
@@ -54,9 +58,13 @@ To see layout created by **Rocketseat** team, click on badge below:
 -   Use **SVG Sprite** and **Icon** component to access icons in sprite;
 -   I have a different layout in episode page;
 
+<br /><br />
+
 <h2 style="font-weight:300">ℹ️ Useful Links:</h2>
 
 -   [Server side rendering Styled-Components with NextJS](https://medium.com/swlh/server-side-rendering-styled-components-with-nextjs-1db1353e915e)
+
+<br /><br />
 
 <div align="right" style="margin-top: 50px">
 <h3 style="font-weight: 300">
