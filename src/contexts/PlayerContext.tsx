@@ -22,6 +22,9 @@ export const PlayerContextProvider = ({ children }: Props) => {
 	const [isLooping, setIsLooping] = useState<boolean>(false);
 
 	//
+	const [isShuffling, setIsShuffling] = useState<boolean>(false);
+
+	//
 	const play = (episode: PlayerEpisodeInfo) => {
 		setEpisodeList([episode]);
 		setIsPlaying(true);
@@ -35,15 +38,18 @@ export const PlayerContextProvider = ({ children }: Props) => {
 		setIsPlaying(true);
 	};
 
-	//
+	// Validate if have a previous podcast
 	const hasPrevious = currentEpisodeIndex > 0;
 
-	//
-	const hasNext = currentEpisodeIndex + 1 < episodeList.length;
+	// Validate if have a next podcast
+	const hasNext = isShuffling || currentEpisodeIndex + 1 < episodeList.length;
 
 	//
 	const playNext = () => {
-		if (hasNext) {
+		if (isShuffling) {
+			const nextRandomEpisodeIndex = Math.floor(Math.random() * episodeList.length);
+			setCurrentEpisodeIndex(nextRandomEpisodeIndex);
+		} else if (hasNext) {
 			setCurrentEpisodeIndex(currentEpisodeIndex + 1);
 		}
 	};
@@ -66,8 +72,23 @@ export const PlayerContextProvider = ({ children }: Props) => {
 	};
 
 	//
+	const toggleShuffle = () => {
+		setIsShuffling(!isShuffling);
+	};
+
+	//
 	const setPlayingState = (state: boolean) => {
 		setIsPlaying(state);
+	};
+
+	//
+	const clearPlayerState = () => {
+		setEpisodeList([]);
+		setCurrentEpisodeIndex(0);
+
+		setIsPlaying(false);
+		setIsLooping(false);
+		setIsShuffling(false);
 	};
 
 	return (
@@ -75,17 +96,26 @@ export const PlayerContextProvider = ({ children }: Props) => {
 			value={{
 				episodeList,
 				currentEpisodeIndex,
+
 				hasPrevious,
 				hasNext,
+
 				isPlaying,
 				isLooping,
+				isShuffling,
+
 				play,
 				playList,
+
 				playNext,
 				playPrevious,
+
 				togglePlay,
 				toggleLoop,
-				setPlayingState
+				toggleShuffle,
+
+				setPlayingState,
+				clearPlayerState
 			}}
 		>
 			{children}

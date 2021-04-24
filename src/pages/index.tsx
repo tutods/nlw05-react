@@ -46,13 +46,17 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 					<ListLastEpisodes>
 						{latestEpisodes.map((episode: FormattedEpisode, index) => (
 							<li key={index}>
-								<EpisodeImage
-									width={192}
-									height={192}
-									src={episode.thumbnail}
-									alt={episode.title}
-									objectFit='cover'
-								/>
+								<Link href={`/episode/${episode.id}`}>
+									<a>
+										<EpisodeImage
+											width={192}
+											height={192}
+											src={episode.thumbnail}
+											alt={episode.title}
+											objectFit='cover'
+										/>
+									</a>
+								</Link>
 
 								<EpisodeDetails>
 									<Link href={`/episode/${episode.id}`}>
@@ -91,13 +95,17 @@ const Home: Page<Home> = ({ allEpisodes, latestEpisodes }) => {
 							{allEpisodes.map((episode: FormattedEpisode, index) => (
 								<tr key={index}>
 									<td>
-										<TableEpisodeImage
-											width={120}
-											height={120}
-											src={episode.thumbnail}
-											alt={episode.title}
-											objectFit='cover'
-										/>
+										<Link href={`/episode/${episode.id}`}>
+											<a>
+												<TableEpisodeImage
+													width={120}
+													height={120}
+													src={episode.thumbnail}
+													alt={episode.title}
+													objectFit='cover'
+												/>
+											</a>
+										</Link>
 									</td>
 									<td>
 										<Link href={`/episode/${episode.id}`}>
@@ -149,6 +157,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			members: episode.members,
 			publishedAt: format(parseISO(episode.published_at), 'd MMM yy', { locale: pt }),
 			durationAsString: convertDurationToTimeString(Number(episode.file.duration)),
+			duration: episode.file.duration,
 			description: episode.description,
 			url: episode.file.url
 		};

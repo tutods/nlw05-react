@@ -2,7 +2,8 @@ import { Icon } from 'components/icons/Icon';
 import { usePlayer } from 'contexts/PlayerContext';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { convertDurationToTimeString } from 'utils/functions/convertDurationToTimeString';
 import {
 	Button,
 	Buttons,
@@ -26,19 +27,24 @@ const Player: React.FC = () => {
 		currentEpisodeIndex,
 		isPlaying,
 		isLooping,
+		isShuffling,
 		hasNext,
 		hasPrevious,
-		setPlayingState,
 		togglePlay,
 		toggleLoop,
+		toggleShuffle,
 		playNext,
-		playPrevious
+		playPrevious,
+		setPlayingState,
+		clearPlayerState
 	} = usePlayer();
 
 	const episode = episodeList[currentEpisodeIndex];
 
 	// Reference to audio tag
 	const audioRef = useRef<HTMLAudioElement>(null);
+
+	const [progress, setProgress] = useState(0);
 
 	useEffect(() => {
 		if (!audioRef.current) {
@@ -51,6 +57,31 @@ const Player: React.FC = () => {
 			audioRef.current.pause();
 		}
 	}, [isPlaying]);
+
+	const setupProgressListener = () => {
+		// if (!audioRef.current) {
+		// 	return;
+		// }
+
+		audioRef.current!.currentTime = 0;
+
+		audioRef.current!.addEventListener('timeupdate', () => {
+			setProgress(Math.floor(audioRef.current!.currentTime));
+		});
+	};
+
+	const handleSeek = (amount: number) => {
+		audioRef.current!.currentTime = amount;
+		setProgress(amount);
+	};
+
+	const handleEpisodeEnded = () => {
+		if (hasNext) {
+			playNext();
+		} else {
+			clearPlayerState();
+		}
+	};
 
 	return (
 		<Container>
@@ -75,11 +106,14 @@ const Player: React.FC = () => {
 
 			<PlayerFooter empty={!episode}>
 				<ProgressBar>
-					<span>00:00</span>
+					<span>{convertDurationToTimeString(progress)}</span>
 
 					<SliderContainer>
 						{episode ? (
 							<Slider
+								max={episode.duration}
+								value={progress}
+								onChange={handleSeek}
 								trackStyle={{ backgroundColor: '#04d361' }}
 								railStyle={{ backgroundColor: '#9F75FF' }}
 								handleStyle={{ borderColor: '#04d361', borderWidth: 4 }}
@@ -89,7 +123,7 @@ const Player: React.FC = () => {
 						)}
 					</SliderContainer>
 
-					<span>00:00</span>
+					<span>{convertDurationToTimeString(episode?.duration || 0)}</span>
 				</ProgressBar>
 
 				{episode && (
@@ -100,14 +134,23 @@ const Player: React.FC = () => {
 						loop={isLooping}
 						onPlay={() => setPlayingState(true)}
 						onPause={() => setPlayingState(false)}
+						onEnded={handleEpisodeEnded}
+						onLoadedMetadata={setupProgressListener}
 					/>
 				)}
 
 				<Buttons>
-					<ShuffleButton isActive={false} type='button' disabled={!episode}>
+					{/* Shuffle Button */}
+					<ShuffleButton
+						isActive={isShuffling}
+						onClick={() => toggleShuffle()}
+						type='button'
+						disabled={!episode || episodeList.length === 1}
+					>
 						<Icon name='shuffle' />
 					</ShuffleButton>
 
+					{/* Previous Button */}
 					<Button
 						type='button'
 						onClick={() => playPrevious()}
@@ -116,6 +159,7 @@ const Player: React.FC = () => {
 						<Icon name='previous' />
 					</Button>
 
+					{/* Play Button */}
 					<PlayButton
 						playing={isPlaying}
 						type='button'
@@ -125,6 +169,7 @@ const Player: React.FC = () => {
 						<Icon name={isPlaying ? 'pause' : 'play'} />
 					</PlayButton>
 
+					{/* Next Button */}
 					<Button
 						type='button'
 						onClick={() => playNext()}
@@ -133,6 +178,7 @@ const Player: React.FC = () => {
 						<Icon name='next' />
 					</Button>
 
+					{/* Repeat Button */}
 					<RepeatButton
 						isActive={isLooping}
 						type='button'

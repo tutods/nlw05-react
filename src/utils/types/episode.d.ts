@@ -29,6 +29,5 @@ export type PlayerEpisodeInfo = {
 	thumbnail: string;
 	members: string;
 	duration: number;
-	durationAsString: string;
 	url: string;
 };

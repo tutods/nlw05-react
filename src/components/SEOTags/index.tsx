@@ -14,11 +14,14 @@ const SEOTags: React.FC<Props> = ({ title }) => {
 
 			<link rel='shortcut icon' href='/favicon.svg' />
 			<meta name='keywords' content='tutods, nlw, podcastr, react, rocktseat' />
-			{/* <meta name='description' content='A app to make you move.' /> */}
+			<meta name='description' content='Project developed on React to NLW 05 of Rocketseat' />
 
 			<meta property='og:site_name' content='Podcastr' />
 			<meta property='og:title' content={finalTitle} />
-			{/* <meta property='og:description' content='A app to make you move.' /> */}
+			<meta
+				property='og:description'
+				content='Project developed on React to NLW 05 of Rocketseat'
+			/>
 			<meta property='og:image' content='/podcastr.png' />
 			<meta property='og:image:type' content='image/svg' />
 			<meta property='og:image:width' content='1200' />

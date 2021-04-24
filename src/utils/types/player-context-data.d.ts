@@ -6,6 +6,7 @@ export type PlayerContextData = {
 
 	isPlaying: boolean;
 	isLooping: boolean;
+	isShuffling: boolean;
 
 	hasPrevious: boolean;
 	hasNext: boolean;
@@ -18,5 +19,8 @@ export type PlayerContextData = {
 
 	togglePlay: () => void;
 	toggleLoop: () => void;
+	toggleShuffle: () => void;
+
 	setPlayingState: (state: boolean) => void;
+	clearPlayerState: () => void;
 };

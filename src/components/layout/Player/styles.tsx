@@ -50,6 +50,13 @@ export const PlayerHeader = styled.header`
 	}
 `;
 
+const PlayerThumbCss = css`
+	padding: 4rem;
+	text-align: center;
+	border-radius: 1.5rem;
+	box-shadow: ${({ theme }) => theme.shadows.default};
+`;
+
 export const EmptyPlayer = styled.div`
 	width: 100%;
 	height: 20rem;
@@ -57,18 +64,14 @@ export const EmptyPlayer = styled.div`
 	${flexSettings()};
 	${flexAlignment('center', 'center')}
 
-	padding: 4rem;
-	text-align: center;
 	border: 1.5px dashed ${({ theme }) => theme.colors.primary[300]};
-	border-radius: 1.5rem;
+	${PlayerThumbCss};
 
 	background: linear-gradient(
 		143.8deg,
 		${({ theme }) => rgba(theme.colors.primary[800], 0.8)} 0%,
 		${({ theme }) => rgba(theme.colors.black, 0)}100%
 	);
-
-	box-shadow: ${({ theme }) => theme.shadows.default};
 `;
 
 export const Playing = styled.div`
@@ -95,19 +98,12 @@ export const ThumbnailContainer = styled.div<ThumbnailContainerProps>`
 	width: 100%;
 	height: 20rem;
 
-	padding: 4rem;
-	text-align: center;
-	border: 1.5px dashed ${({ theme }) => theme.colors.primary[300]};
-	border-radius: 1.5rem;
-
 	background-image: url(${({ thumbnail }) => thumbnail});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	/* background-blend-mode: overlay; */
-	background-color: ${({ theme }) => theme.colors.boxBackground};
 
-	box-shadow: ${({ theme }) => theme.shadows.default};
+	${PlayerThumbCss};
 `;
 
 export const PlayerFooter = styled.footer<FooterProps>`
@@ -183,7 +179,6 @@ const CSSStateActionButton = css<StateActionButtonProps>`
 		}
 	}
 `;
-
 // ==> end reusable css buttons <== //
 
 export const Button = styled.button`
