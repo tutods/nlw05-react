@@ -33,6 +33,12 @@
 </a>
 </div>
 
+<h2 style="font-weight:300">🌐 Deploy:</h2>
+
+<a href="https://moveit-tutods.vercel.app/">
+  <img alt="Vercel" src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white" alt='Deploy'/>
+</a>
+
 <h2 style="font-weight:300">🎨 Layout:</h2>
 
 To see layout created by **Rocketseat** team, click on badge below:
