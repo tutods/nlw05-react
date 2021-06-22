@@ -13,8 +13,8 @@
 	<a href="#">
 		<img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" alt="VS Code" />
 	</a>
-	<a href="https://github.com/TutoDS/nlw05-flutter/stargazers">
-    	<img alt="Stargazers" src="https://img.shields.io/github/stars/TutoDS/nlw05-react-native?style=for-the-badge">
+	<a href="https://github.com/TutoDS/nlw05-react/stargazers">
+    	<img alt="Stargazers" src="https://img.shields.io/github/stars/TutoDS/nlw05-react?style=for-the-badge">
 	</a>
 </div>
 
@@ -36,7 +36,7 @@
 <h2 style="font-weight:300">🌐 Deploy:</h2>
 
 <a href="https://podcastr-tutods.vercel.app/">
-  <img alt="Vercel" src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white" alt='Deploy'/>
+  <img src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white" alt='Deploy'/>
 </a>
 
 <br /><br />
