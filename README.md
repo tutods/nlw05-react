@@ -23,14 +23,6 @@
 <a href="https://github.com/TutoDS/nlw05-react">
 	<img src="https://img.shields.io/badge/node.js%20NLW5%20-%2320232a.svg?&style=for-the-badge&logo=node.js&logoColor=%2343853D" alt="NodeJS"/>
 </a>
-
-<a href="https://github.com/TutoDS/nlw05-flutter">
-	<img src="https://img.shields.io/badge/Flutter%20NLW5%20-%2320232a.svg?&style=for-the-badge&logo=flutter&logoColor=%2302569B" alt="Flutter"/>
-</a>
-
-<a href="https://github.com/TutoDS/nlw05-react-native">
-	<img src="https://img.shields.io/badge/React%20Native%20NLW5%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React Native"/>
-</a>
 </div>
 
 <h2 style="font-weight:300">🌐 Deploy:</h2>
